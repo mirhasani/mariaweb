@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "FE"
+		},
+		{
+			"path": "AdminDash"
 		}
 	],
 	"settings": {}
