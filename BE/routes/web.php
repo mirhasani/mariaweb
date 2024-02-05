@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Profile;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return Profile::find(1)->user;
 });
