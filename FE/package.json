@@ -2,7 +2,7 @@
   "name": "mariaweb",
   "version": "0.0.1",
   "description": "mariaweb app",
-  "productName": "MariaWeb FE",
+  "productName": "mariaweb FE",
   "author": "mirhasani <mirhasani.m69@gmail.com>",
   "private": true,
   "scripts": {

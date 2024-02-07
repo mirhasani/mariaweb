@@ -12,10 +12,10 @@
         />
 
         <q-toolbar-title>
-          Quasar App
+  
         </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <div> mariaweb </div>
       </q-toolbar>
     </q-header>
 

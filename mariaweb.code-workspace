@@ -10,5 +10,8 @@
 			"path": "AdminDash"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"vscode.tsc.compiler.alertTSConfigChanges": "never",
+		"vscode.tsc.compiler.alertOnError": "never"
+	}
 }

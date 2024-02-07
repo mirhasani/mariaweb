@@ -15,5 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return Profile::find(1)->user;
+    // return Profile::find(1)->user;
+    return "You cannot access this part!";
 });
