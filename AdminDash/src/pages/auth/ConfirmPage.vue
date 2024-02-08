@@ -21,7 +21,7 @@
         outlined
         ref="passwordRef"
         type="password"
-        input-style="direction: rtl"
+        input-class="text-center"
         v-model="password"
         autocomplete="off"
         :rules="[
@@ -39,6 +39,15 @@
      outlined
      @click="verify"
    />
+   <div class="text-grey-8 text-center text-h6">شماره همراه خود را اشتباه وارد کردید؟</div>
+   <q-btn
+   outline
+   class=" underline full-width q-mt-md q-py-sm"
+   color="blue"
+   flat
+   @click="$router.push('/admin')"
+   >اصلاح شماره همراه</q-btn
+ >
       </div>
     </div>
   </q-page>
@@ -69,5 +78,9 @@ export default {
   width: 100%;
   text-align: center;
   font-size: 18px;
+}
+.underline {
+  text-decoration: underline;
+  justify-content: center;
 }
 </style>

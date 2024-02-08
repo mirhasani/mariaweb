@@ -21,7 +21,7 @@
         outlined
         ref="usernameRef"
         type="tel"
-        input-style="direction: rtl"
+        input-class="text-center"
         v-model="username"
         autocomplete="off"
         :rules="[
