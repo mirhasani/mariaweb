@@ -9,3 +9,10 @@ export default defineComponent({
   name: 'App'
 })
 </script>
+<style>
+.bgHeader  , .bgFooter{
+  background-color: #232222;
+  color: #fcfcfc;
+}
+</style>
+

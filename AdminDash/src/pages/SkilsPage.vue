@@ -1,17 +1,14 @@
 <template>
-  <router-view />
+  <q-page class="flex flex-center">
+
+<h4>Skils</h4>
+  </q-page>
 </template>
 
 <script>
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'App'
+  name: 'IndexPage'
 })
 </script>
-<style>
-.bgHeader{
-  background-color: #232222;
-  color: #fcfcfc;
-}
-</style>

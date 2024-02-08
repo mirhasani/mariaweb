@@ -1,6 +1,6 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
+  <q-layout view="hHh LpR fFf">
+    <q-header elevated class="bgHeader ">
       <q-toolbar>
         <q-btn
           flat
@@ -11,11 +11,10 @@
           @click="toggleLeftDrawer"
         />
 
-        <q-toolbar-title>
-  
-        </q-toolbar-title>
-
-        <div> mariaweb </div>
+        <q-toolbar-title class="text-weight-bold" >
+          مدیریت داشبورد
+        </q-toolbar-title  >
+        <div class="text-weight-bold "> mariaweb </div>
       </q-toolbar>
     </q-header>
 
@@ -28,7 +27,6 @@
         <q-item-label
           header
         >
-          Essential Links
         </q-item-label>
 
         <EssentialLink
@@ -51,48 +49,66 @@ import EssentialLink from 'components/EssentialLink.vue'
 
 const linksList = [
   {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
+    title: " صفحه اصلی",
+    icon: "home",
+    link: "/#/",
+  },
+
+  {
+    title: "پروفایل",
+    icon: "person",
+    link: "/#/profile",
+  },
+
+  {
+    title: "مهارت ها",
+    icon: "code",
+    link: "/#/skils",
+  },
+
+  {
+    title: " تجربه کاری",
+    icon: "work",
+    link: "/#/work",
   },
   {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
+    title: "نمونه کارها",
+    icon: "collections",
+    link: "/#/portfolio",
+  },
+
+  {
+    title: "تحصیلات",
+    icon: "school",
+    link: "/#/educations",
   },
   {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
+    title: "اطلاعات تماس",
+    icon: "call",
+    link: "/#/contact",
   },
   {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
+    title: "رزومه",
+    icon: "download",
+    link: "/#/resume",
   },
   {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
+    title: "بیوگرافی",
+    icon: "info",
+    link: "/#/biography",
   },
   {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
+    title: "پیام‌ها",
+    icon: "message",
+    link: "/#/messages",
   },
+
   {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
-  }
-]
+    title: "تنظیمات",
+    icon: "settings",
+    link: "/#/settings",
+  },
+];
 
 export default defineComponent({
   name: 'MainLayout',
@@ -107,9 +123,10 @@ export default defineComponent({
     return {
       essentialLinks: linksList,
       leftDrawerOpen,
-      toggleLeftDrawer () {
+          toggleLeftDrawer () {
         leftDrawerOpen.value = !leftDrawerOpen.value
       }
+
     }
   }
 })

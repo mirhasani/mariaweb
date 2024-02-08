@@ -1,21 +1,105 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
-      <q-toolbar>
+  <q-layout view="hHh Lpr fFf"> <!-- Be sure to play with the Layout demo on docs -->
 
+    <!-- (Optional) The Header -->
+    <q-header elevated class="bgHeader">
+      <q-toolbar>
+        <q-btn
+          flat
+          round
+          dense
+          icon="menu"
+          @click="toggleLeftDrawer"
+        />
 
         <q-toolbar-title>
-          ماریا وب
+          Header
         </q-toolbar-title>
-
-        <div>mariaweb</div>
       </q-toolbar>
+
+      <q-tabs>
+        <q-route-tab
+          icon="map"
+          to="/your/route"
+          replace
+          label="One Tab"
+        />
+        <q-route-tab
+          icon="assignment"
+          to="/some/other/route"
+          replace
+          label="Other Tab"
+        />
+      </q-tabs>
     </q-header>
 
+    <!-- (Optional) The Footer -->
+    <q-footer class="bgFooter">
+      <q-tabs switch-indicator>
+        <q-route-tab
+          icon="map"
+          to="/your/route"
+          replace
+          label="One Tab"
+        />
+        <q-route-tab
+          icon="assignment"
+          to="/some/other/route"
+          replace
+          label="Other Tab"
+        />
+      </q-tabs>
+
+      <q-toolbar>
+        <q-btn
+          flat
+          round
+          dense
+          icon="menu"
+          @click="toggleLeftDrawer"
+        />
+        <q-toolbar-title>
+          Footer
+        </q-toolbar-title>
+      </q-toolbar>
+    </q-footer>
+
+    <!-- (Optional) A Drawer; you can add one more with side="right" or change this one's side -->
+    <q-drawer
+      v-model="leftDrawerOpen"
+      side="left"
+      bordered
+      class="bg-grey-2"
+    >
+      <!-- QScrollArea is optional -->
+      <q-scroll-area class="fit q-pa-sm">
+        <!-- Content here -->
+      </q-scroll-area>
+    </q-drawer>
 
     <q-page-container>
-      
+      <!-- This is where pages get injected -->
+      <router-view />
     </q-page-container>
+
   </q-layout>
 </template>
 
+<script>
+import { ref } from 'vue'
+
+export default {
+  // name: 'LayoutName',
+
+  setup () {
+    const leftDrawerOpen = ref(false)
+
+    return {
+      leftDrawerOpen,
+      toggleLeftDrawer () {
+        leftDrawerOpen.value = !leftDrawerOpen.value
+      }
+    }
+  }
+}
+</script>
