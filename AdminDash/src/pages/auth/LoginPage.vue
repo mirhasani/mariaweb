@@ -31,7 +31,7 @@
      />
      <q-btn
      outline
-     class="full-width q-mt-md q-py-sm"
+     class="full-width q-mt-md q-py-sm text-weight-bold"
      color="light-blue-6"
      label="بزن بریم"
      icon="send"
