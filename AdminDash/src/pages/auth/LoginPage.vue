@@ -12,7 +12,7 @@
       >
         <q-icon name="arrow_back" color="primary" size="sm" />
       </q-btn>
-      <h5 class="text-grey-6  text-left text-secondary  "> تلفن همراه</h5>
+      <h6 class="text-grey-6  text-left text-secondary  "> تلفن همراه</h6>
         <q-input
         placeholder="شماره همراه خود را وارد کنید"
         class="full-width "
@@ -34,7 +34,7 @@
      class="full-width q-mt-md q-py-sm"
      color="light-blue-6"
      label="بزن بریم"
-     icon="security"
+     icon="send"
      rounded
      outlined
      @click="login"
