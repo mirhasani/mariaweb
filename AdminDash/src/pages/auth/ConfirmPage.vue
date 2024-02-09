@@ -93,7 +93,7 @@ export default {
       }
     }
     onMounted(() => {
-      console.log(appData.username);
+      console.log(appData.mobile);
     });
     return {
       verify,
