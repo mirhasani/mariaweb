@@ -28,9 +28,7 @@ class AuthController extends Controller
              $user->password = $password;
              $user->save();
              SendSMS::sendVerification($request->mobile, $password);
-
-            // SendSMS::sendVerification('09211894113' , rand(111111,999999));
-
+             
             return response()->json(['status' => true, 'password' => $user->password], 200);
         } else {
             return response()->json(['status' => false, 'message' => 'user does not exist']);

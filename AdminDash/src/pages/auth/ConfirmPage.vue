@@ -25,7 +25,8 @@
           autocomplete="off"
           :rules="[
             (val) => !!val || 'وارد کردن این فیلد الزامی است',
-            //(val) => val.length > 3 ||  `کد وارد شده اشتباه است!`',
+           (val) => val.length > 3 || 'بیشتر از سه عدد وارد کن!' ,
+           (val) => /^[0-9]{6}$/.test(val) || 'کد وارد شده اشتباه است!' ,
           ]"
         />
         <q-btn
@@ -66,6 +67,8 @@ export default {
     const passwordRef = ref(null);
     const password = ref();
     const q = useQuasar();
+    const clientSecret = ref("y7TkZNUx4dxKGZuDt6ms7Efh0hJw1IlVO0qjCOaI");
+    const cliendId = ref(2);
     function verify() {
       if (password.value){
         passwordRef.value.validate();
