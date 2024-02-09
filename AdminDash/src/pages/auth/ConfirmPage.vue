@@ -59,6 +59,7 @@
 import { useQuasar } from "quasar";
 import { useAppDataStore } from "src/stores/appData";
 import { onMounted, ref } from "vue";
+import { useRouter } from "vue-router";
 import { api } from "src/boot/axios";
 export default {
   // name: 'PageName',
@@ -66,9 +67,10 @@ export default {
     const appData = useAppDataStore();
     const passwordRef = ref(null);
     const password = ref();
+    const router = useRouter();
     const q = useQuasar();
-    const clientSecret = ref("y7TkZNUx4dxKGZuDt6ms7Efh0hJw1IlVO0qjCOaI");
-    const cliendId = ref(2);
+    // const clientSecret = ref("pRjoAKJfp54CG8OfVjyD5tYzCqVl9sFiiUidODZC");
+    // const cliendId = ref(2);
     function verify() {
       if (password.value){
         passwordRef.value.validate();
@@ -81,14 +83,19 @@ export default {
       } else {
         api.post("api/admin/auth", {
           grant_type: "password",
-          client_id: cliendId.value,
-          client_secret: clientSecret.value,
+          // client_id: cliendId.value,
+          // client_secret: clientSecret.value,
           mobile: appData.mobile,
           password: password.value,
         })
         .then((r) => {
             console.log(r.data);
-
+            if (r.data.access_token) {
+              q.cookies.set('access_token',r.data.access_token,{expires: '365d'})
+              q.cookies.set('refresh_token',r.data.refresh_token, {expires: '365d'})
+              q.cookies.set('expires_in',r.data.expires_in, {expires: '365d'})
+            }
+            router.push('/')
           });
       }
       }else{
