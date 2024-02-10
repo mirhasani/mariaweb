@@ -94,8 +94,8 @@ export default {
               q.cookies.set('access_token',r.data.access_token,{expires: '365d'})
               q.cookies.set('refresh_token',r.data.refresh_token, {expires: '365d'})
               q.cookies.set('expires_in',r.data.expires_in, {expires: '365d'})
+              router.push('/')
             }
-            router.push('/')
           });
       }
       }else{
