@@ -1,7 +1,20 @@
 <template>
-  <q-page class="flex flex-center">
+  <q-page padding="">
 
-<h4>profile</h4>
+<div class="row justify-center">
+    <div class="col-auto text-center">
+      <q-avatar size="80px">
+        <q-img  src="/img/man.webp" />
+      </q-avatar>
+      <h5 class="text-h6 q-ma-none">maria</h5>
+    </div>
+</div>
+<div class="row">
+  <div class="col-12">
+
+  </div>
+</div>
+
   </q-page>
 </template>
 
