@@ -41,13 +41,13 @@ class AuthController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-            'mobile' => 'required|min:10',
+            'username' => 'required|min:10',
             'password' => 'required|min:5',
         ]);
         if ($validator->fails()) {
             return response()->json(['status' => false, 'message' => $validator->messages()]);
         }
-        $username = $request->mobile;
+        $username = $request->username;
         $password = $request->password;
         $clientSecret = DB::table('oauth_clients')->where('id', 2)->value('secret');
 
@@ -56,7 +56,7 @@ class AuthController extends Controller
 
         //uncomment on localhost
         $response = Http::asForm()->post('http://localhost:8001/oauth/token' , [
-            'grant_type' => 'password',
+            'grant_type' => 'client_credentials',
             'client_id' => '2',
             'client_secret' => $clientSecret,
             'username' => $username,

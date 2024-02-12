@@ -67,6 +67,7 @@ export default {
           message: "لطفا چک کنید شماره مبایل به درستی وارد نشده است!",
         });
       } else {
+        appData.mobile = mobile.value;
         api
           .post("api/admin/send-vc", {
             mobile: mobile.value,

@@ -67,6 +67,7 @@ export default {
     const appData = useAppDataStore();
     const passwordRef = ref(null);
     const password = ref();
+    const username = ref();
     const router = useRouter();
     const q = useQuasar();
     // const clientSecret = ref("pRjoAKJfp54CG8OfVjyD5tYzCqVl9sFiiUidODZC");
@@ -82,10 +83,10 @@ export default {
         });
       } else {
         api.post("api/admin/auth", {
-          grant_type: "password",
+          grant_type:"password",
           // client_id: cliendId.value,
           // client_secret: clientSecret.value,
-          mobile: appData.mobile,
+          username: appData.mobile,
           password: password.value,
         })
         .then((r) => {
@@ -108,6 +109,7 @@ export default {
     return {
       verify,
       password,
+      username,
       passwordRef,
     };
   },
