@@ -58,6 +58,17 @@ const routes = [
     }
     ]
   },
+    {
+    path: '/about',
+    component: () => import('src/layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/AboutPage.vue'),
+      meta: {
+        requireAuth: true,
+      },
+    }
+    ]
+  },
   {
     path: '/skils',
     component: () => import('src/layouts/MainLayout.vue'),
@@ -72,12 +83,19 @@ const routes = [
    {
     path: '/portfolio',
     component: () => import('src/layouts/MainLayout.vue'),
+    meta: {
+      requireAuth: true,
+    },
     children: [
-      { path: '', component: () => import('pages/PortfolioPage.vue') ,
-      meta: {
-        requireAuth: true,
-      },
-    }
+      { path: '',
+      component: () => import('pages/PortfolioPage.vue') ,
+    },
+      { path: 'create',
+      component: () => import('pages/CreatefolioPage.vue') ,
+    },
+        { path: 'edit',
+      component: () => import('pages/EditfolioPage.vue') ,
+    },
     ]
   },
      {

@@ -13,6 +13,7 @@ export default defineComponent({
 .bgHeader  , .bgFooter{
   background-color: #232222;
   color: #fcfcfc;
+ 
 }
 </style>
 

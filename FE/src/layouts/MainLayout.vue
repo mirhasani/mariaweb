@@ -2,35 +2,57 @@
   <q-layout view="hHh Lpr fFf"> <!-- Be sure to play with the Layout demo on docs -->
 
     <!-- (Optional) The Header -->
-    <q-header elevated class="bgHeader">
-      <q-toolbar>
-        <q-btn
-          flat
-          round
-          dense
-          icon="menu"
-          @click="toggleLeftDrawer"
-        />
+    <q-header elevated class="bgHeader text-center ">
+      <div class="row">
+        <div class="col-3">
+          <q-btn
+            flat
+            round
+            dense
+            icon="menu"
+            float="right"
+            @click="toggleLeftDrawer"
+          />
+        </div>
+      <div class="col-6" >
+        <q-tabs >
+          <q-route-tab
+            to="/"
+            replace
+            label="خانه"
+          />
+          <q-route-tab
+            to="/#about"
+            replace
+            label="درباره ما"
+          />
 
-        <q-toolbar-title>
-          Header
-        </q-toolbar-title>
-      </q-toolbar>
-
-      <q-tabs>
-        <q-route-tab
-          icon="map"
-          to="/your/route"
+              <q-route-tab
+            to="/#skils"
+            replace
+            label="مهارت ها"
+          />
+              <q-route-tab
+            to="/#resume"
+            replace
+            label="رزومه"
+          />
+          <q-route-tab
+          to="/#portfolio"
           replace
-          label="One Tab"
+          label="نمونه کارها"
         />
         <q-route-tab
-          icon="assignment"
-          to="/some/other/route"
-          replace
-          label="Other Tab"
-        />
-      </q-tabs>
+        to="/#contact"
+        replace
+        label="تماس با ما"
+      />
+        </q-tabs>
+      </div>
+          <div class="col-3 text-h4" >
+          Maria
+          </div>
+      </div>
     </q-header>
 
     <!-- (Optional) The Footer -->

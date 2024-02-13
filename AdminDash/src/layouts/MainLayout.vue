@@ -87,6 +87,11 @@ const linksList = [
     icon: "call",
     link: "/#/contact",
   },
+   {
+    title: " درباره ما",
+    icon: "info",
+    link: "/#/about",
+  },
   {
     title: "رزومه",
     icon: "download",
