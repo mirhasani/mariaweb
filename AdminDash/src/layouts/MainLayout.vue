@@ -74,7 +74,7 @@ const linksList = [
   {
     title: "نمونه کارها",
     icon: "collections",
-    link: "/#/portfolio",
+    link: "/#/portfolios",
   },
 
   {

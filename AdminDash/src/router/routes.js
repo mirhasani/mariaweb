@@ -81,21 +81,24 @@ const routes = [
     ]
   },
    {
-    path: '/portfolio',
+    path: '/portfolios',
     component: () => import('src/layouts/MainLayout.vue'),
     meta: {
       requireAuth: true,
     },
     children: [
-      { path: '',
-      component: () => import('pages/PortfolioPage.vue') ,
+      {
+        path: '',
+      component: () => import("src/pages/portfolios/PortfolioPage.vue") ,
     },
-      { path: 'create',
-      component: () => import('pages/CreatefolioPage.vue') ,
+      {
+        path: 'create',
+      component: () => import("src/pages/portfolios/CreatePortpolio.vue") ,
     },
-        { path: 'edit',
-      component: () => import('pages/EditfolioPage.vue') ,
-    },
+        {
+           path: 'edit/:id',
+      component: () => import("src/pages/portfolios/EditPortfolio.vue") ,
+    }
     ]
   },
      {
