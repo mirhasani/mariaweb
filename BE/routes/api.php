@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PortfolioController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +18,12 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 Route::prefix('admin')->group(function(){
     Route::post('/send-vc', [AuthController::class, 'verify']);
     Route::post('/auth', [AuthController::class, 'auth']);
+    Route::apiResource('/portfolios',PortfolioController::class)->middleware('auth:api');
 });
+

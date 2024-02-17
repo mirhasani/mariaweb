@@ -3,12 +3,12 @@
     <!-- content -->
     <div class="col-12 text-center  q-gutter-y-md ">
       <h1 class="text-h4 q-ma-none q-mt-lg">افزودن نمونه کار جدید</h1>
-      <q-uploader
+      <!-- <q-uploader
       style="width:100% "
       url="http://localhost:4444/upload"
       label="آپلود فایل"
       accept=".jpg, image/*"
-    />
+    /> -->
       <q-input
       label="عنوان  "
       autofocus
@@ -54,7 +54,7 @@ export default {
     }
     return{
       ...toRefs(props),
-      CreatePortfolio
+      CreatePortfolio ,
     }
   }
 }
