@@ -44,7 +44,7 @@ export default {
       caption:null,
     })
     function CreatePortfolio(){
-      api.post('api/portfolios' ,{
+      api.post('api/admin/portfolios' ,{
         title: props.title,
         caption:props.caption
       })

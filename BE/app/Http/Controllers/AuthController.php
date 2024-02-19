@@ -56,7 +56,7 @@ class AuthController extends Controller
 
         //uncomment on localhost
         $response = Http::asForm()->post('http://localhost:8001/oauth/token' , [
-            'grant_type' => 'client_credentials',
+            'grant_type' => 'password',
             'client_id' => '2',
             'client_secret' => $clientSecret,
             'username' => $username,

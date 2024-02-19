@@ -47,11 +47,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    public function findForPassport($username)
+    {
+        return $this->where('mobile', $username)->first();
+    }
+
     public function profile(): HasOne
     {
       return $this->hasone(Profile::class);
     }
-    
+
       public function portfolios(): HasMany
     {
       return $this->hasmany(Portfolio::class);
