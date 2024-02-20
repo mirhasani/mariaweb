@@ -26,6 +26,8 @@
       <q-btn
        icon="send" label=" ذخیره کن"
         outlined rounded
+        :loading="loading"
+        :disable="loading"
         class="full-width" size="lg"
         @click="CreatePortfolio"
          />
@@ -36,20 +38,38 @@
 <script>
 import { reactive, toRefs } from 'vue'
 import { api } from 'src/boot/axios'
+import { useQuasar } from 'quasar'
+import { useRouter } from 'vue-router'
 export default {
   // name: 'PageName',
   setup (){
+    const q = useQuasar();
+    const router = useRouter();
     const props=reactive({
       title: null,
       caption:null,
+      loading:false
     })
     function CreatePortfolio(){
+      props.loading = true
       api.post('api/admin/portfolios' ,{
         title: props.title,
         caption:props.caption
       })
       .then(r =>{
+        props.loading = false
         console.log(r.data);
+        q.notify({
+              color: "light-blue-6",
+              position: "top",
+              message: "نممونه کار با موفیت اضافه شد.",
+              icon: "done_all",
+            });
+            router.push('/portfolios');
+      })
+      .catch(e => {
+        props.loading =false
+        console.log(e);
       })
     }
     return{

@@ -59,7 +59,7 @@ class User extends Authenticatable
 
       public function portfolios(): HasMany
     {
-      return $this->hasmany(Portfolio::class);
+      return $this->hasmany(Portfolio::class)->orderByDesc('created_at');
     }
 
 }
