@@ -59,13 +59,21 @@ export default {
       .then(r =>{
         props.loading = false
         console.log(r.data);
-        q.notify({
+        if (r.data.status){
+          q.notify({
               color: "light-blue-6",
               position: "top",
               message: "نممونه کار با موفیت اضافه شد.",
               icon: "done_all",
             });
             router.push('/portfolios');
+        }else{
+          q.notify({
+              color: "orange-6",
+              position: "top",
+              message: "Error!",
+            });
+        }
       })
       .catch(e => {
         props.loading =false
