@@ -14,7 +14,7 @@
         <q-toolbar-title class="text-weight-bold" >
           مدیریت داشبورد
         </q-toolbar-title  >
-        <div class="text-weight-bold "> mariaweb </div>
+        <div class="text-weight-bold text-h5 "> mariaweb </div>
       </q-toolbar>
     </q-header>
 

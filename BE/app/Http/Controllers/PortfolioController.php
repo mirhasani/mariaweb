@@ -51,8 +51,14 @@ class PortfolioController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Portfolio $portfolio)
+    public function destroy(Request $request , Portfolio $portfolio)
     {
-        //
+        if ($request->user()->id = $portfolio->user_id ){
+            $portfolio->delete();
+            return ['status'=>true];
+        }else{
+            return 'تلاش برای هک کردن';
+        }
+
     }
 }

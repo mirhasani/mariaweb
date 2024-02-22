@@ -49,7 +49,7 @@
       />
         </q-tabs>
       </div>
-          <div class="col-3 text-h4" >
+          <div class="col-3 text-h5" >
           MariaWeb
           </div>
       </div>

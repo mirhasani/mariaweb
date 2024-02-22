@@ -49,7 +49,7 @@
                     <q-separator />
                     <q-item clickable>
                       <q-item-section>
-                        <q-icon size="25px" color="pink-6" name="delete" />
+                        <q-icon size="25px" @click="showConfirmation(portfolio.id , index)" color="pink-6" name="delete" />
                       </q-item-section>
                     </q-item>
                   </q-list>
@@ -81,6 +81,17 @@
         </q-tab-panels>
       </div>
     </div>
+    <q-dialog v-model="taeed" persistent>
+      <q-card>
+        <q-card-section class="row items-center">
+          <span class="q-ml-sm">  {{ selectedPortfolio.title}}  رو مطمئنی که می خواهی حذفش کنی؟  </span>
+        </q-card-section>
+        <q-card-actions align="right">
+          <q-btn flat label="لغو" color="grey-7" v-close-popup />
+          <q-btn flat label="بله" @click="deletePortfolio" color="pink-6" v-close-popup />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
   </q-page>
 </template>
 
@@ -93,12 +104,29 @@ export default {
   setup() {
     const tab = ref("portfolios");
     const portfolios = ref([]);
+    const taeed = ref(false);
+    const selectedPortfolio = ref(null);
+    const selectedPortfolioIndex = ref(null);
+    function deletePortfolio(){
+api.delete('api/admin/portfolios/'+ selectedPortfolio.value.id)
+.then(r=>{
+  if(r.data.status){
+    portfolios.value.splice(selectedPortfolioIndex.value , 1)
+    taeed.value = false ;
+  }
+});
+    }
     function fetchPortfolio() {
   api.get('api/admin/portfolios')
   .then((r) => {
     portfolios.value = r.data
     console.log(r.data);
   });
+    }
+    function showConfirmation(id , index){
+      selectedPortfolio.value = portfolios.value[index];
+      selectedPortfolioIndex.value = index ;
+      taeed.value = true ;
     }
      //fetchPortfolio()
      onMounted(() => {
@@ -107,7 +135,12 @@ export default {
     return {
       tab,
       portfolios,
-      fetchPortfolio
+      fetchPortfolio ,
+      showConfirmation ,
+      taeed ,
+      selectedPortfolio ,
+      deletePortfolio ,
+      selectedPortfolioIndex
     };
   },
 };
