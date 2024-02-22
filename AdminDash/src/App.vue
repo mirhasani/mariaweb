@@ -14,4 +14,7 @@ export default defineComponent({
   background-color: #232222;
   color: #fcfcfc;
 }
+*{
+  font-family: IRANSansX;
+}
 </style>

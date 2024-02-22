@@ -50,7 +50,7 @@
         </q-tabs>
       </div>
           <div class="col-3 text-h4" >
-          Maria
+          MariaWeb
           </div>
       </div>
     </q-header>
