@@ -37,7 +37,7 @@ class PortfolioController extends Controller
      */
     public function show(Portfolio $portfolio)
     {
-        //
+        return $portfolio ;
     }
 
     /**
@@ -45,7 +45,15 @@ class PortfolioController extends Controller
      */
     public function update(Request $request, Portfolio $portfolio)
     {
-        //
+
+            if ($request->user()->id = $portfolio->user_id ){
+                $portfolio->title = $request->title ;
+                $portfolio->caption = $request->caption ;
+                $portfolio->save() ;
+                return ['status'=>true];
+            }else{
+                return 'editing is denied for you';
+            }
     }
 
     /**

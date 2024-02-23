@@ -43,7 +43,7 @@
                   <q-list>
                     <q-item clickable>
                       <q-item-section>
-                        <q-icon size="25px" name="edit" />
+                        <q-icon size="25px" @click="$router.push(`/portfolios/edit/${portfolio.id}`)"  name="edit" />
                       </q-item-section>
                     </q-item>
                     <q-separator />
@@ -123,6 +123,9 @@ api.delete('api/admin/portfolios/'+ selectedPortfolio.value.id)
     console.log(r.data);
   });
     }
+    function editPortfolio(){
+
+    }
     function showConfirmation(id , index){
       selectedPortfolio.value = portfolios.value[index];
       selectedPortfolioIndex.value = index ;
@@ -140,7 +143,8 @@ api.delete('api/admin/portfolios/'+ selectedPortfolio.value.id)
       taeed ,
       selectedPortfolio ,
       deletePortfolio ,
-      selectedPortfolioIndex
+      selectedPortfolioIndex ,
+      editPortfolio
     };
   },
 };
