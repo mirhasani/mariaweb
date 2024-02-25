@@ -1,11 +1,13 @@
 <template>
   <q-page padding >
     <div class="row justify-center">
-      <div v-if="userData" class="col-auto text-center">
+      <div  class="col-auto text-center">
         <q-avatar size="80px">
-          <q-img  src="/img/man.webp" />
+          <q-img v-if="userData" src="/img/man.webp" />
+          <q-skeleton v-else type="circle" />
         </q-avatar>
-        <h1 class="text-h4 q-ma-none q-mt-lg"> {{ userData.profile.full_name }}</h1>
+        <h1 v-if="userData"  class="text-h4 q-ma-none q-mt-lg"> {{ userData.profile.full_name }}</h1>
+        <q-skeleton v-else type="text" />
         <h5>به داشبورد مدیریت خوش آمدید </h5>
       </div>
     </div>
