@@ -199,7 +199,7 @@ api.delete('api/admin/portfolios/'+ selectedPortfolio.value.id)
     }
      //fetchPortfolio()
      onMounted(() => {
-      fetchPortfolio()
+      fetchPortfolio();
      })
     return {
       tab,

@@ -52,6 +52,7 @@ class User extends Authenticatable
         return $this->where('mobile', $username)->first();
     }
 
+    protected $with = ['profile'];
     public function profile(): HasOne
     {
       return $this->hasone(Profile::class);
