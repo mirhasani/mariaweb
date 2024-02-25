@@ -25,5 +25,6 @@ Route::prefix('admin')->group(function(){
     Route::post('/send-vc', [AuthController::class, 'verify']);
     Route::post('/auth', [AuthController::class, 'auth']);
     Route::apiResource('/portfolios',PortfolioController::class)->middleware('auth:api');
+    Route::get('/public/portfolios',[PortfolioController::class ,'public'])->middleware('auth:api');
 });
 

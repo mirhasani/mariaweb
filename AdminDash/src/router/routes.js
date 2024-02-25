@@ -91,6 +91,10 @@ const routes = [
         path: '',
       component: () => import("src/pages/portfolios/PortfolioPage.vue") ,
     },
+    {
+       path: 'allPortfolios',
+      component: () => import("src/pages/portfolios/AllPortfolios.vue") ,
+    },
       {
         path: 'create',
       component: () => import("src/pages/portfolios/CreatePortpolio.vue") ,

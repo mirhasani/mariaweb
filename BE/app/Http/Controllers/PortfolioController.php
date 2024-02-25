@@ -15,6 +15,12 @@ class PortfolioController extends Controller
      return $request->user()->portfolios;
     }
 
+     public function public(Request $request)
+    {
+        return $request->user()->portfolios;
+    //  return Portfolio::where('user_id', '!=',$request->user()-id)->get();
+    }
+
     /**
      * Store a newly created resource in storage.
      */

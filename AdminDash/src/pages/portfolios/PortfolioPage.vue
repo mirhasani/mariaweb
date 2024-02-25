@@ -17,7 +17,8 @@
           align="justify"
           narrow-indicator
         >
-          <q-tab name="portfolios" label="نمونه کارها" />
+         <q-tab name="discover" label="همه نمونه کارها" />
+          <q-tab name="portfolios" label=" نمونه کارهای من" />
           <q-tab name="liked" label="لایک شده ها" />
           <q-tab name="views" label="بازدید شده ها" />
         </q-tabs>
@@ -26,7 +27,7 @@
 
         <q-tab-panels v-model="tab" animated >
           <q-tab-panel name="portfolios">
-            <div class="text-h6">نمونه کارها</div>
+            <div class="text-h6">نمونه کارهای من</div>
             <div v-if="portfolios.length < 1" class="text-grey-8 text-h6 text-center"
             >شما هیج نمونه کاری ندارید!
           </div>
@@ -63,7 +64,63 @@
             <br>
             <q-btn
             class="full-width text-h6"
-             label="افزودن اولین نمونه کار "
+             label="افزودن نمونه کار "
+              outline rounded
+              @click="$router.push('/portfolios/create')"
+              />
+          </q-tab-panel>
+
+          <q-tab-panel name="liked">
+            <div class="text-h6">لایک شده ها</div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </q-tab-panel>
+
+          <q-tab-panel name="views">
+            <div class="text-h6">بازدید شده ها</div>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </q-tab-panel>
+        </q-tab-panels>
+
+        <q-tab-panels v-model="tab" animated >
+          <q-tab-panel name="discover">
+            <div class="text-h6">نمونه کارهای دوستان </div>
+            <div v-if="AllPortfolios.length < 1" class="text-grey-8 text-h6 text-center"
+            >شما هیج نمونه کاری ندارید!
+          </div>
+          <div v-else class="row q-col-gutter-md">
+            <div class="col-6" v-for="(portfolio , index) in AllPortfolios" :key="'portfolio'+index+1">
+           <q-card>
+            <q-card-section>
+              <h6 class="q-ma-none">{{portfolio.title}}</h6>
+              <p>{{portfolio.caption}}</p>
+            </q-card-section>
+            <q-card-section align="around">
+              <q-btn class="" flat color="grey-8" icon="more_horiz" >
+                <q-menu fit>
+                  <q-list>
+                    <q-item clickable>
+                      <q-item-section>
+                        <q-icon size="25px" @click="$router.push(`/portfolios/edit/${portfolio.id}`)"  name="edit" />
+                      </q-item-section>
+                    </q-item>
+                    <q-separator />
+                    <q-item clickable>
+                      <q-item-section>
+                        <q-icon size="25px" @click="showConfirmation(portfolio.id , index)" color="pink-6" name="delete" />
+                      </q-item-section>
+                    </q-item>
+                  </q-list>
+                </q-menu>
+              </q-btn>
+              <q-btn class="" flat color="grey-7" icon="favorite_outline" />
+            </q-card-section>
+           </q-card>
+            </div>
+          </div>
+            <br>
+            <q-btn
+            class="full-width text-h6"
+             label="افزودن نمونه کار "
               outline rounded
               @click="$router.push('/portfolios/create')"
               />
@@ -104,6 +161,7 @@ export default {
   setup() {
     const tab = ref("portfolios");
     const portfolios = ref([]);
+    const AllPortfolios = ref([]);
     const taeed = ref(false);
     const selectedPortfolio = ref(null);
     const selectedPortfolioIndex = ref(null);
@@ -123,6 +181,14 @@ api.delete('api/admin/portfolios/'+ selectedPortfolio.value.id)
     console.log(r.data);
   });
     }
+    function fetchAllPortfolios() {
+  api.get('api/admin/public/portfolios')
+  .then((r) => {
+   AllPortfolios.value = r.data;
+    console.log(r.data);
+  });
+    }
+    fetchAllPortfolios()
     function editPortfolio(){
 
     }
@@ -144,7 +210,9 @@ api.delete('api/admin/portfolios/'+ selectedPortfolio.value.id)
       selectedPortfolio ,
       deletePortfolio ,
       selectedPortfolioIndex ,
-      editPortfolio
+      editPortfolio ,
+      AllPortfolios ,
+      fetchAllPortfolios
     };
   },
 };
