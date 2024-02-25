@@ -159,7 +159,7 @@ import { onMounted, ref } from "vue";
 export default {
   name: "IndexPage",
   setup() {
-    const tab = ref("portfolios");
+    const tab = ref("discover");
     const portfolios = ref([]);
     const AllPortfolios = ref([]);
     const taeed = ref(false);
