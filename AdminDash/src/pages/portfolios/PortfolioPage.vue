@@ -2,7 +2,7 @@
   <q-page padding="">
     <div class="row justify-center">
       <div class="col-auto text-center">
-        <h1 class="text-h4 q-ma-none q-mt-lg">نمونه کارهای من</h1>
+        <h1 class="text-h4 q-ma-none q-mt-lg">نمونه کارها</h1>
       </div>
     </div>
     <br /><br />
@@ -17,7 +17,7 @@
           align="justify"
           narrow-indicator
         >
-         <q-tab name="discover" label="همه نمونه کارها" />
+         <q-tab name="discover" label="  نمونه کارهای دوستان" />
           <q-tab name="portfolios" label=" نمونه کارهای من" />
           <q-tab name="liked" label="لایک شده ها" />
           <q-tab name="views" label="بازدید شده ها" />

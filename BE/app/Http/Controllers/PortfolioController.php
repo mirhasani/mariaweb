@@ -17,8 +17,7 @@ class PortfolioController extends Controller
 
      public function public(Request $request)
     {
-        return $request->user()->portfolios;
-    //  return Portfolio::where('user_id', '!=',$request->user()-id)->get();
+     return Portfolio::where('user_id', '!=',$request->user()->id)->get();
     }
 
     /**
