@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Portfolio;
 use Illuminate\Http\Request;
 
@@ -10,6 +11,13 @@ class PortfolioController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+
+ public function getPortfolioUser1(Request $request)
+    {   $user= User::find(1);
+         return $user->portfolios;
+    }
+
     public function index(Request $request)
     {
      return $request->user()->portfolios;
