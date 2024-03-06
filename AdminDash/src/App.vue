@@ -17,4 +17,5 @@ export default defineComponent({
 *{
   font-family: IRANSansX;
 }
+
 </style>

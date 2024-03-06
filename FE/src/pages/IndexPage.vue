@@ -1,6 +1,6 @@
 <template>
   <q-page padding>
-<div class="row justify-center bg-grey-4" id="#Home">
+<div class="row justify-center bg-grey-4" id="Home">
   <div class="col-auto text-center">
     <q-avatar size="200px">
       <q-img  src="/img/man.webp" />
@@ -23,9 +23,9 @@
     <h2 class="text-h3 ">RESUME</h2>
   </div>
 </div>
-<div class="row justify-center bg-grey-4" id="#portfolio">
+<div class="row justify-center " id="portfolio">
   <div class="col-4 text-center">
-    <h2 class="text-h3 "> نمونه کارهای من </h2>
+    <h2 class="text-h3"> نمونه کارهای من </h2>
     <h5> <a href="/" > maria  </a>  >> portfolio </h5>
 
     <div class="row ">
@@ -45,7 +45,7 @@
           <q-tab name="html-p" label="اچ تی ام ال" />
         </q-tabs>
 
-        <q-separator />
+        <q-separator  />
 <br>
       </div>
     </div>
@@ -94,3 +94,4 @@ export default {
   },
 };
 </script>
+
