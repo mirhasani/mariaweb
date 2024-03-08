@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PortfolioController;
 
 
@@ -29,5 +30,8 @@ Route::prefix('admin')->group(function(){
     Route::post('/auth', [AuthController::class, 'auth']);
     Route::apiResource('/portfolios',PortfolioController::class)->middleware('auth:api');
     Route::get('/public/portfolios',[PortfolioController::class ,'public'])->middleware('auth:api');
+    Route::apiResource('/likes',LikeController::class)->middleware('auth:api');
+    Route::post('/likes/{portfolioId}',[LikeController::class , 'setLike'] )->middleware('auth:api');
+
 });
 

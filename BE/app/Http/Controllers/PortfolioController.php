@@ -25,7 +25,20 @@ class PortfolioController extends Controller
 
      public function public(Request $request)
     {
-     return Portfolio::where('user_id', '!=',$request->user()->id)->get();
+     $portfolios = Portfolio::where('user_id', '!=',$request->user()->id)->get();
+     foreach ($portfolios as $portfolio){
+        $likes = $portfolio->likes;
+        $user = $request->user();
+        if($likes->count()>0){
+            if($like->user_id == $user->id){
+                $portfolio->liked = true;
+            } else{
+                $portfolio->liked = false;
+            }
+
+        }
+     }
+     return $portfolios;
     }
 
     /**

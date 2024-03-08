@@ -112,7 +112,7 @@
                   </q-list>
                 </q-menu>
               </q-btn>
-              <q-btn class="" flat color="grey-7" icon="favorite_outline" />
+              <q-btn  @click="likeToggle(portfolio.id , index)" class="" flat :color="portfolio.liked? 'red':'grey-7'"  :icon="portfolio.liked?'favorite':'favorite_outline'"  />
             </q-card-section>
            </q-card>
             </div>
@@ -192,6 +192,13 @@ api.delete('api/admin/portfolios/'+ selectedPortfolio.value.id)
     function editPortfolio(){
 
     }
+
+    function likeToggle (portfolioId , index){
+      api.post('api/admin/likes/' + portfolioId)
+      .then(r=>{
+        AllPortfolios.value[index].liked = r.data.liked
+      })
+    }
     function showConfirmation(id , index){
       selectedPortfolio.value = portfolios.value[index];
       selectedPortfolioIndex.value = index ;
@@ -212,7 +219,8 @@ api.delete('api/admin/portfolios/'+ selectedPortfolio.value.id)
       selectedPortfolioIndex ,
       editPortfolio ,
       AllPortfolios ,
-      fetchAllPortfolios
+      fetchAllPortfolios ,
+      likeToggle
     };
   },
 };

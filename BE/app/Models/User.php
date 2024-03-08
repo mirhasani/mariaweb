@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Like;
 use App\Models\Profile;
 use App\Models\Portfolio;
 use Laravel\Passport\HasApiTokens;
@@ -11,6 +12,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class User extends Authenticatable
 {
@@ -61,6 +63,11 @@ class User extends Authenticatable
       public function portfolios(): HasMany
     {
       return $this->hasmany(Portfolio::class)->orderByDesc('created_at');
+    }
+
+    public function likes(): BelongsToMany
+    {
+      return $this->belongsToMany(Like::class , 'likes' , 'user_id' , 'portfolio_id');
     }
 
 }
