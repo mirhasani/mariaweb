@@ -56,7 +56,7 @@
     </q-header>
 
     <!-- (Optional) The Footer -->
-    <q-footer class="bgFooter">
+    <q-footer elevated class="bgFooter ">
       <q-tabs switch-indicator>
         <q-route-tab
           icon="map"

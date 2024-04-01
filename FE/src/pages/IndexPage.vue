@@ -1,24 +1,28 @@
 <template>
-  <q-page padding>
-<div class="row justify-center bg-grey-4" id="Home">
-  <div class="col-auto text-center">
-    <q-avatar size="200px">
-      <q-img  src="/img/man.webp" />
-    </q-avatar>
-
+  <q-page  >
+<div class="row  justify-center  " id="Home">
+      <div class="col-6"></div>
+      <div class="col-6 maria">
+          <h3> سلام   </h3>
+          <h3 class="d-flex"> من ماریا  <span>
+                  <h2> یک برنامه نویس فرانت اند هستم</h2>
+              </span> </h3>
+          <a class="btn btn-primary" href="#portfolio">  نمونه کارهای من   </a>
+      </div>
+      <div class="col-6"></div>
   </div>
-</div>
-<div class="row justify-center bg-grey-5" id="#about">
+
+<div class="row justify-center " id="about">
   <div class="col-4 text-center">
     <h2 class="text-h3 ">ABOUT</h2>
   </div>
 </div>
-<div class="row justify-center bg-grey-4" id="#skils">
+<div class="row justify-center " id="skils">
   <div class="col-4 text-center">
     <h2 class="text-h3 ">SKILS</h2>
   </div>
 </div>
-<div class="row justify-center bg-grey-5" id="#resume">
+<div class="row justify-center " id="resume">
   <div class="col-4 text-center">
     <h2 class="text-h3 ">RESUME</h2>
   </div>
@@ -64,9 +68,14 @@
           <br><br>
   </div>
 </div>
-<div class="row justify-center bg-grey-5" id="#contact">
+<div class="row justify-center " id="contact">
   <div class="col-4 text-center">
     <h2 class="text-h3 ">CONTACT</h2>
+  </div>
+</div>
+<div class="row justify-center " id="blog">
+  <div class="col-4 text-center">
+    <h2 class="text-h3 ">BLOG</h2>
   </div>
 </div>
   </q-page>
